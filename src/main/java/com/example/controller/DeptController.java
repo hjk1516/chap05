@@ -35,4 +35,18 @@ public class DeptController {
 
 		return "jsp/dept/list";
 	}
+	@GetMapping("/list2")
+	public String list2(Model model) {
+
+		log.info("/dept/list2 호출됨");
+
+		List<DeptVO> depts = deptrepository.findAll();
+		depts.forEach(e -> {
+			System.out.println(e);
+		});
+		model.addAttribute("depts",depts);
+
+		return "thymeleaf/dept/list";
+	}
+
 }
